@@ -1,0 +1,312 @@
+# Gym6744<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRON PULSE | Premium Fitness & Gym</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --surface: #0f1115;
+            --surface-card: #161920;
+            --accent: #ccff00; /* Neon Lime/Yellow */
+            --accent-hover: #b3e600;
+            --text: #ffffff;
+            --text-muted: #94a3b8;
+            --border: #222733;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            font-style: italic;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .btn {
+            background-color: var(--accent);
+            color: #000;
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: 0.2s ease;
+        }
+
+        .btn:hover { 
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 5%;
+            text-align: center;
+            background: radial-gradient(circle at center, #1b2200 0%, var(--bg) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Pricing Cards */
+        .card {
+            background-color: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card.popular {
+            border-color: var(--accent);
+        }
+
+        .badge {
+            background-color: var(--accent);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 1.5rem;
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            transform: rotate(45deg);
+            text-transform: uppercase;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(204, 255, 0, 0.05);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .card .btn {
+            display: block;
+            text-align: center;
+        }
+
+        .card.popular .btn {
+            background-color: var(--accent);
+        }
+
+        .card .btn-alt {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .card .btn-alt:hover {
+            border-color: var(--text);
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 4rem 5%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p { margin-bottom: 1rem; }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1rem; }
+            .section-header h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">IRON<span>PULSE</span></div>
+        <a href="#pricing" class="btn">Claim Free Pass</a>
+    </nav>
+
+    <section class="hero">
+        <h1>No Excuses.<br>Just <span>Results</span>.</h1>
+        <p>Premium training facilities, elite certified coaching, and a dynamic fitness community ready to help you shatter your personal goals.</p>
+        <a href="#pricing" class="btn">View Memberships</a>
+    </section>
+
+    <section class="section" id="pricing">
+        <div class="section-header">
+            <h2>Choose Your Plan</h2>
+            <p>Flexible membership options built around your fitness routine.</p>
+        </div>
+        
+        <div class="grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <h3>Basic Access</h3>
+                <div class="price">$29<span>/mo</span></div>
+                <ul class="features-list">
+                    <li>Standard gym floor access</li>
+                    <li>Locker room & shower access</li>
+                    <li>Free high-speed WiFi</li>
+                    <li>1 Complimentary trainer consult</li>
+                </ul>
+                <a href="#" class="btn btn-alt">Select Plan</a>
+            </div>
+
+            <!-- Card 2 (Popular) -->
+            <div class="card popular">
+                <div class="badge">Popular</div>
+                <h3>Elite Team</h3>
+                <div class="price">$59<span>/mo</span></div>
+                <ul class="features-list">
+                    <li>24/7 Full gym floor access</li>
+                    <li>All group fitness classes included</li>
+                    <li>2 Personal training sessions /mo</li>
+                    <li>Sauna & recovery zone access</li>
+                </ul>
+                <a href="#" class="btn">Select Plan</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <h3>VIP Athlete</h3>
+                <div class="price">$99<span>/mo</span></div>
+                <ul class="features-list">
+                    <li>24/7 Access + VIP lounge</li>
+                    <li>Unlimited personal training</li>
+                    <li>Customized nutrition mapping</li>
+                    <li>Free towel & smoothie service</li>
+                </ul>
+                <a href="#" class="btn btn-alt">Select Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Iron Pulse Fitness Center. All Rights Reserved.</p>
+        <p>123 Performance Way, New York, NY • Mon-Sun: 5:00 AM - 11:00 PM</p>
+    </footer>
+
+</body>
+</html>
